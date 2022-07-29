@@ -1,4 +1,4 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="products.length !=0">
     <div class="container">
         <div class="card-table">
             <div class="cart-product">
@@ -15,19 +15,28 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let item of products; let i = index ">
                         <tr>
-                            <td>1</td>
-                            <td>Iphone</td>
-                            <td>Some Image</td>
-                            <td>This is branded phone</td>
-                            <td>50000</td>
-                            <td>2</td>
-                            <td>40000</td>
-                            <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                            <td>{{i+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td><img style="width: 200px;" src="{{item.image}}" alt="" srcset=""></td>
+
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <td style="width:12%;">{{item.price}}</td>
+                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <td style="width: 12%;">{{item.total}}</td>
+                            <td><button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4"></td>
+                            <td> <button (click)="emptycart(item)" class="btn btn-danger">Empty Cart</button></td>
+                            <td> <button routerLink="/products" class="btn btn-primary">Shop more</button></td>
+                            <td> <button class="btn btn-success">Checkout</button></td>
                         </tr>
 
                     </tbody>
+
 
                 </table>
             </div>
@@ -35,7 +44,7 @@
     </div>
 </ng-container>
 
-<ng-container *ngIf="false">
+<ng-container *ngIf="products.length ==0">
     <div class="container">
         <div class="card">
             <h4 class="card-title text-center"> My cart</h4>
@@ -44,7 +53,7 @@
             <img src="../../../assets/images/shopping-cart.png" alt="">
             <h4>Cart is empty</h4>
             <h6>Add item to it now</h6>
-            <button class="btn btn-primary mt-3"> shop now</button>
+            <button routerLink="/products" class="btn btn-primary mt-3"> shop now</button>
         </div>
     </div>
 
