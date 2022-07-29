@@ -19,23 +19,27 @@
                         <tr>
                             <td>{{i+1}}</td>
                             <td>{{item.title}}</td>
-                            <td><img style="width: 200px;" src="{{item.image}}" alt="" srcset=""></td>
+                            <td><img style="width: 80px;" src="{{item.image}}" alt="" srcset=""></td>
 
-                            <td style="width: 25%;">{{item.description}}</td>
+                            <td style="width: 40%;">{{item.description}}</td>
                             <td style="width:12%;">{{item.price}}</td>
-                            <td style="width: 12%;">{{item.quantity}}</td>
-                            <td style="width: 12%;">{{item.total}}</td>
+                            <td style="width:12%;">{{item.quantity}}</td>
+                            <td style="width:12%;">{{item.total}}</td>
                             <td><button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                         </tr>
 
-                        <tr>
-                            <td colspan="4"></td>
-                            <td> <button (click)="emptycart(item)" class="btn btn-danger">Empty Cart</button></td>
-                            <td> <button routerLink="/products" class="btn btn-primary">Shop more</button></td>
-                            <td> <button class="btn btn-success">Checkout</button></td>
-                        </tr>
+
 
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4"></td>
+                            <!-- <td> <button (click)="emptycart(item)" class="btn btn-danger">Empty Cart</button></td> -->
+                            <td> <button routerLink="/products" class="btn btn-primary">Shop more</button></td>
+                            <td> <button class="btn btn-success">Checkout</button></td>
+                            <td> <strong> Grand Total: ${{grandTotal}}</strong></td>
+                        </tr>
+                    </tfoot>
 
 
                 </table>
