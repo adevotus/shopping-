@@ -30,3 +30,18 @@
 
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor=" let item of productlist ">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;max-width:100px;">{{item.title}}</h5>
+                <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;max-width:100px;">{{item.description}}</p>
+                <p>amount</p>
+                <button class="btn btn-success"> add to cart</button>
+
+            </div>
+        </ng-container>
+    </div>
+</div>
